@@ -33,7 +33,7 @@ public class MealRepositoryImpl implements MealRepository {
     }
 
     @Override
-    public Meal getById(int id) {
+    public Meal get(int id) {
         return repository.get(id);
     }
 

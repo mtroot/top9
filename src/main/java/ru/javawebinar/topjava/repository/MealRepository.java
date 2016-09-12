@@ -12,7 +12,7 @@ public interface MealRepository {
 
     Meal save(Meal meal);
 
-    Meal getById(int id);
+    Meal get(int id);
 
     boolean delete(int id);
 

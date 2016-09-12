@@ -1,6 +1,5 @@
 package ru.javawebinar.topjava.web;
 
-import com.sun.deploy.net.HttpRequest;
 import org.slf4j.Logger;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.MealWithExceed;
@@ -19,7 +18,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.zip.Inflater;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -63,7 +61,7 @@ public class MealServlet extends HttpServlet {
         } else {
             final Meal meal = action.equals("create") ?
                     new Meal(null, LocalDateTime.now(), "", 1000) :
-                    repository.getById(getId(req));
+                    repository.get(getId(req));
             req.setAttribute("meal", meal);
             req.getRequestDispatcher("mealEdit.jsp").forward(req, resp);
         }
