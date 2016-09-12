@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.repository;
 
 import ru.javawebinar.topjava.model.Meal;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -10,11 +11,13 @@ import java.util.List;
  */
 public interface MealRepository {
 
-    Meal save(Meal meal);
+    Meal save(Meal meal, int userId);
 
-    Meal get(int id);
+    Meal get(int id, int userId);
 
-    boolean delete(int id);
+    boolean delete(int id, int userId);
 
-    List<Meal> getAll();
+    List<Meal> getAll(int userId);
+
+    List<Meal> getBetweenDate(int userId, LocalDate start, LocalDate end);
 }

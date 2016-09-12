@@ -21,8 +21,8 @@
 </head>
 <body>
 <section>
-    <h2>Edit meal</h2>
-    <a href="/">Home</a>
+    <h2>${param.action == 'create' ? 'Create meal' : 'EditMeal'}</h2>
+    <a href="index.html">Home</a>
     <jsp:useBean id="meal" class="ru.javawebinar.topjava.model.Meal" scope="request"/>
     <form method="post" action="meals">
         <% if (meal.getId() != null) {%>

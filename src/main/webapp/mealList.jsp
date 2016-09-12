@@ -16,7 +16,34 @@
 <body>
 <br>
     <h2>Meal list</h2>
-    <a href="">Home</a>
+    <a href="index.html">Home</a>
+    <form method="get" action="meals">
+        <dl>
+            <dt>Start Date</dt>
+            <dd>
+                <input type="date" name="startDate">
+            </dd>
+        </dl>
+        <dl>
+            <dt>Start time</dt>
+            <dd>
+                <input type="time" name="startTime">
+            </dd>
+        </dl>
+        <dl>
+            <dt>End Date</dt>
+            <dd>
+                <input type="date" name="endDate">
+            </dd>
+        </dl>
+        <dl>
+            <dt>End Time</dt>
+            <dd>
+                <input type="time" name="endTime">
+            </dd>
+        </dl>
+        <button type="submit">Filter</button>
+    </form>
     <br>
     <a href="meals?action=create">Add meal</a>
     <br>
@@ -32,7 +59,7 @@
         </tr>
         </thead>
         <c:forEach items="${ml}" var="meal">
-            <jsp:useBean id="meal" class="ru.javawebinar.topjava.model.MealWithExceed"/>
+            <jsp:useBean id="meal" class="ru.javawebinar.topjava.model.to.MealWithExceed"/>
             <tr class=${meal.exceed ? "exceed" : "norm"}>
                 <td>
                     <%--<%DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");%>
