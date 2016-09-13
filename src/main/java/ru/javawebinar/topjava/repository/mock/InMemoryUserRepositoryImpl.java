@@ -7,6 +7,8 @@ import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -21,6 +23,16 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
     private Comparator<User> userComparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
     private AtomicInteger currentId = new AtomicInteger(0);
     private Map<Integer, User> users = new ConcurrentHashMap<>();
+
+    @PostConstruct
+    public void postConstruct(){
+        LOG.info("+++ PostConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        LOG.info("+++ PreDestroy");
+    }
 
     {
         save(new User(null, "Admin", "admin@mail.ru", "password", Role.ROLE_ADMIN));
