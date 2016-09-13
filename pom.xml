@@ -77,6 +77,13 @@
             </exclusions>
         </dependency>
 
+        <!--DataBase-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1210.jre7</version>
+        </dependency>
+
         <!--Test-->
         <dependency>
             <groupId>junit</groupId>
