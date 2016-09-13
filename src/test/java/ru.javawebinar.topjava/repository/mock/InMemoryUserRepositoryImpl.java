@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 /**
  * @author Timur Muratov
  */
-@Repository
 public class InMemoryUserRepositoryImpl implements UserRepository {
     private static final Logger LOG = LoggerFactory.getLogger(InMemoryUserRepositoryImpl.class);
     private Comparator<User> userComparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
