@@ -7,10 +7,7 @@ import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -53,6 +50,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
 
     @Override
     public User getByEmail(String email) {
+        Objects.requireNonNull(email);
         LOG.info("getByEmail");
         return users.values().stream().filter(u -> u.getEmail().equals(email)).findFirst().orElse(null);
     }

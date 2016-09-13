@@ -4,14 +4,7 @@
 <html>
 <head>
     <title>Meals</title>
-    <style>
-        .exceed {
-            color: red;
-        }
-        .norm {
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <br>

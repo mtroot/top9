@@ -14,6 +14,7 @@ import java.time.Month;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -79,6 +80,8 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
 
     @Override
     public List<Meal> getBetweenDate(int userId, LocalDate start, LocalDate end) {
+        Objects.requireNonNull(start);
+        Objects.requireNonNull(end);
         LOG.info("getBetweenDate");
         return repository.values().stream()
                 .filter(meal -> meal.getUserId() == userId && TimeUtil.isBetweenDate(meal.getDate(), start, end))

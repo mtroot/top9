@@ -24,6 +24,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.Integer.sum;
 import static java.lang.Integer.valueOf;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -42,6 +43,12 @@ public class MealServlet extends HttpServlet {
         repository = new InMemoryMealRepositoryImpl();
         context = new ClassPathXmlApplicationContext("spring/spring-app.xml");
         controller = context.getBean(MealRestController.class);
+    }
+
+    @Override
+    public void destroy() {
+        context.close();
+        super.destroy();
     }
 
     @Override
@@ -90,10 +97,5 @@ public class MealServlet extends HttpServlet {
     private Integer getId(HttpServletRequest request) {
         String parameterId = Objects.requireNonNull(request.getParameter("id"));
         return valueOf(parameterId);
-    }
-
-    @Override
-    public void destroy() {
-        context.close();
     }
 }
