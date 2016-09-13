@@ -9,7 +9,7 @@ import java.util.List;
  * @author Timur Muratov
  */
 @Controller
-public class AdminController extends AbstractUserController {
+public class AdminRestController extends AbstractUserRestController {
 
     @Override
     public List<User> getAll() {

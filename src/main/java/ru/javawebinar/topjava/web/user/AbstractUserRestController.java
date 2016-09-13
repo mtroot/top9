@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * @author Timur Muratov
  */
-public abstract class AbstractUserController {
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractUserController.class);
+public abstract class AbstractUserRestController {
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractUserRestController.class);
 
     @Autowired
     private UserService service;

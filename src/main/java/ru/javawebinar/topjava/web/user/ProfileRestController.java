@@ -8,7 +8,7 @@ import ru.javawebinar.topjava.model.User;
  * @author Timur Muratov
  */
 @Controller
-public class ProfileController extends AbstractUserController {
+public class ProfileRestController extends AbstractUserRestController {
     @Override
     public User get(int id) {
         return super.get(LoggedUser.id());
